@@ -7,7 +7,7 @@ MAINTAINER Nik Rolls <nik.rolls@harmoney.co.nz>
 RUN apt-get update && apt-get dist-upgrade -y
 RUN apt-get install -y python-setuptools python-dev git build-essential
 RUN apt-get install -y libyaml-dev
-# PyYAML version must be kept up to date with requirement in 
+# PyYAML version must be kept up to date with requirement in
 # https://github.com/seatgeek/sixpack/blob/master/requirements.txt
 RUN easy_install pip pyyaml==3.10
 RUN echo 'root:sixpack' | chpasswd
@@ -23,7 +23,7 @@ ADD template/supervisord.d/sixpack.ini /etc/supervisord.d/sixpack.ini
 # setup sixpack
 RUN mkdir -p /home/sixpack
 WORKDIR /home/sixpack
-RUN git clone https://github.com/seatgeek/sixpack
+RUN git clone https://github.com/harmoney-dev/sixpack
 WORKDIR /home/sixpack/sixpack
 RUN pip install -r requirements.txt
 
